@@ -12,6 +12,14 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
+    for index,item in enumerate(weights):
+        hash_table_insert(ht, item, index)
+
+    for index, item in enumerate(weights):
+        goal = limit - item
+        lookup = hash_table_retrieve(ht, goal)
+        if lookup is not None:
+            return max(index, lookup), min(index, lookup)
 
     return None
 
